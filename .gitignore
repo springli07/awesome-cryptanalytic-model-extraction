@@ -5,7 +5,8 @@ desktop.ini
 # Local scratch files
 tmp/
 *.log
+node_modules/
+package-lock.json
 
 # Rendered paper previews should not be published.
 assets/paper_preview/
-
