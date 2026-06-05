@@ -1,0 +1,11 @@
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Local scratch files
+tmp/
+*.log
+
+# Rendered paper previews should not be published.
+assets/paper_preview/
+
