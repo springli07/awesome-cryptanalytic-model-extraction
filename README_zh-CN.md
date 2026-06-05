@@ -52,6 +52,8 @@
    - RNN、GNN、PPML 和 side-channel assisted extraction。
 
 5. **开放问题和防御**
+   - neuron-similarity regularization 等训练时防御；
+   - output rounding 以及针对 rounded oracle 的自适应攻击；
    - hard-label CNN + max-pooling；
    - 未知架构或弱架构知识；
    - top-1 label 下的 event observability；
@@ -93,6 +95,7 @@
 | 2025 | [Extracting Some Layers of Deep Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2025/1118) | ePrint 2025/1118 | Hard label | ReLU MLP | 结构条件下的 output-layer / partial-layer extraction | [Official](https://github.com/deividafonso281/hard-label-contract-output), [Related](https://github.com/Jchavezsaab/hard-label-dnn-extraction) |
 | 2025 | [Is the Hard-Label Cryptanalytic Model Extraction Really Polynomial?](https://eprint.iacr.org/2025/1868) | ePrint 2025/1868 | Hard label | ReLU MLP | persistent/dead neuron 和 polynomiality critique | Not found |
 | 2025 | [Delving into Cryptanalytic Extraction of PReLU Neural Networks](https://eprint.iacr.org/2025/1970) | ePrint 2025/1970 | Raw / hard-label line | PReLU networks | PReLU-specific extraction 和局限性 | [Official](https://github.com/AI-Lab-Y/Extracting_PReLU_NN) |
+| 2025 | [Train to Defend: First Defense Against Cryptanalytic Neural Network Parameter Extraction Attacks](https://arxiv.org/abs/2509.16546) | NeurIPS 2025 / arXiv | 针对 cryptanalytic extraction 的防御 | ReLU MLP | extraction-aware training，通过 weight-similarity regularization 降低 neuron uniqueness | [Official](https://github.com/anonymous-123-code/anonymouscode) |
 | 2026 | [Geometric Critical Point Screening: Clustering-Free Cryptanalytic Extraction of Neural Network Models](https://eprint.iacr.org/2026/1025) | ePrint 2026/1025 | Raw logits | ReLU networks | 筛选 useful critical points，减少聚类成本 | [Official](https://github.com/1983321048/Geometric-CriticalPoint-Screening) |
 | 2026 | [Breaking Slope and Structure Restrictions: Broadening Hard-Label Cryptanalytic Extraction of PReLU Neural Networks](https://eprint.iacr.org/2026/1066) | ePrint 2026/1066 | Hard label | PReLU networks | 放宽 PReLU hard-label extraction 的 slope 和结构限制 | Not found |
 | 2026 | [Cryptanalytic Extraction of Convolutional Neural Networks](https://eprint.iacr.org/2026/139) | ePrint 2026/139 | Hard label | CNN with average pooling | 利用卷积结构和 kernel recovery 做 CNN extraction | Gone: anonymous 4open link returns 410 |
@@ -105,6 +108,7 @@
 | 2026 | [Polynomial-Time Cryptanalytic Extraction of Graph Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2026/719) | ePrint 2026/719 | Hard label | GNN | message-passing 和 graph-structure extraction | [Official](https://github.com/springli07/GNN_MP_CEA) |
 | 2026 | [PPML Is More Vulnerable to Cryptanalytic Extraction Attacks](https://eprint.iacr.org/2026/848) | ePrint 2026/848 | PPML setting | Protected inference systems | privacy-preserving ML 部署中的提取风险 | Not found |
 | 2026 | [End-to-End Polynomial-Time Cryptanalytic Extraction of Convolutional Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2026/902) | ePrint 2026/902 | Hard label | CNN with average pooling | hard-label CNN end-to-end extraction | Announced, no URL found |
+| 2026 | [Output Rounding Is Not a Free Defense Against Cryptanalytic Neural Network Extraction](https://65610.csail.mit.edu/2026/reports/cryptanalytic_nn_extract.pdf) | MIT 6.5610 Spring 2026 report | Rounded raw output | ReLU MLP | 研究 output rounding 防御，并提出针对 rounded oracle 的 step-spacing attack | Not found |
 
 ## 按 Oracle 分类
 
@@ -137,6 +141,16 @@ Soft-label 介于 hard-label 和 raw-logit 之间。它泄漏的信息比 top-1 
 关键问题：
 
 - softmax、top-k 截断或概率量化后，哪些 critical / pooling events 仍然可观测？
+
+### 防御和缓解方法
+
+相比攻击，防御工作仍然很少。目前主要包括训练时防御，例如降低 neuron uniqueness 的相似性正则；以及输出侧防御，例如 output rounding。Output rounding report 的关键结论是：一个防御即使能破坏原始 finite-difference primitive，也可能被把 modified oracle 纳入威胁模型的自适应攻击绕过。
+
+代表工作：
+
+- Train to Defend；
+- Output rounding and step-spacing extraction；
+- full-domain geometry masking 和 event-purity defense 仍然是开放方向。
 
 ## 按架构分类
 
@@ -192,6 +206,8 @@ Hard-label CNN extraction 在 average pooling 上已经有较强结果。Max-poo
 - 能否保持 clean behavior，同时掩码化 off-manifold geometry？
 - dormant chaff neurons 或 normal-jet masking 能否提高提取成本？
 - 如何区分 behavioral fidelity 和 geometric extraction utility？
+- 训练时的 neuron-similarity regularization 如何与部署时防御结合？
+- output rounding 能否在不造成不可接受 utility loss 的情况下抵抗 step-spacing 等自适应攻击？
 
 ### 5. 更真实的 API 设置
 

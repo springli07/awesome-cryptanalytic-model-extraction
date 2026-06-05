@@ -53,6 +53,8 @@ If you are new to this area, read in this order.
    - PPML and side-channel assisted extraction.
 
 5. **Open problems and defenses**
+   - Train-time defenses such as neuron-similarity regularization.
+   - Output rounding and adapted attacks against rounded oracles.
    - Hard-label CNN with max-pooling.
    - Unknown or weak architecture knowledge.
    - Event observability under top-1 labels.
@@ -94,6 +96,7 @@ Cryptanalytic extraction papers can be organized along four axes:
 | 2025 | [Extracting Some Layers of Deep Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2025/1118) | ePrint 2025/1118 | Hard label | ReLU MLP | Output-layer and partial-layer extraction under structural conditions | [Official](https://github.com/deividafonso281/hard-label-contract-output), [Related](https://github.com/Jchavezsaab/hard-label-dnn-extraction) |
 | 2025 | [Is the Hard-Label Cryptanalytic Model Extraction Really Polynomial?](https://eprint.iacr.org/2025/1868) | ePrint 2025/1868 | Hard label | ReLU MLP | Persistent/dead neuron limitations and polynomiality critique | Not found |
 | 2025 | [Delving into Cryptanalytic Extraction of PReLU Neural Networks](https://eprint.iacr.org/2025/1970) | ePrint 2025/1970 | Raw / hard-label line | PReLU networks | PReLU-specific extraction and limitations | [Official](https://github.com/AI-Lab-Y/Extracting_PReLU_NN) |
+| 2025 | [Train to Defend: First Defense Against Cryptanalytic Neural Network Parameter Extraction Attacks](https://arxiv.org/abs/2509.16546) | NeurIPS 2025 / arXiv | Defense against cryptanalytic extraction | ReLU MLP | Extraction-aware training that reduces neuron uniqueness via weight-similarity regularization | [Official](https://github.com/anonymous-123-code/anonymouscode) |
 | 2026 | [Geometric Critical Point Screening: Clustering-Free Cryptanalytic Extraction of Neural Network Models](https://eprint.iacr.org/2026/1025) | ePrint 2026/1025 | Raw logits | ReLU networks | Geometric screening of useful critical points | [Official](https://github.com/1983321048/Geometric-CriticalPoint-Screening) |
 | 2026 | [Breaking Slope and Structure Restrictions: Broadening Hard-Label Cryptanalytic Extraction of PReLU Neural Networks](https://eprint.iacr.org/2026/1066) | ePrint 2026/1066 | Hard label | PReLU networks | Removes slope and structure restrictions in PReLU extraction | Not found |
 | 2026 | [Cryptanalytic Extraction of Convolutional Neural Networks](https://eprint.iacr.org/2026/139) | ePrint 2026/139 | Hard label | CNN with average pooling | CNN extraction via convolutional structure and kernel recovery | Gone: anonymous 4open link returns 410 |
@@ -106,6 +109,7 @@ Cryptanalytic extraction papers can be organized along four axes:
 | 2026 | [Polynomial-Time Cryptanalytic Extraction of Graph Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2026/719) | ePrint 2026/719 | Hard label | GNN | Message-passing and graph-structure extraction | [Official](https://github.com/springli07/GNN_MP_CEA) |
 | 2026 | [PPML Is More Vulnerable to Cryptanalytic Extraction Attacks](https://eprint.iacr.org/2026/848) | ePrint 2026/848 | PPML setting | Protected inference systems | Extraction risks in privacy-preserving ML deployments | Not found |
 | 2026 | [End-to-End Polynomial-Time Cryptanalytic Extraction of Convolutional Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2026/902) | ePrint 2026/902 | Hard label | CNN with average pooling | End-to-end hard-label CNN extraction | Announced, no URL found |
+| 2026 | [Output Rounding Is Not a Free Defense Against Cryptanalytic Neural Network Extraction](https://65610.csail.mit.edu/2026/reports/cryptanalytic_nn_extract.pdf) | MIT 6.5610 Spring 2026 report | Rounded raw output | ReLU MLP | Studies output rounding as a defense and introduces a step-spacing attack against rounded oracles | Not found |
 
 ## By Oracle Model
 
@@ -138,6 +142,16 @@ Soft-label settings sit between hard-label and raw-logit extraction. They leak m
 Important question:
 
 - Which critical or pooling events remain observable after softmax or top-k truncation?
+
+### Defenses and mitigations
+
+Defenses are still sparse compared with attacks. The current line includes training-time defenses that reduce neuron uniqueness and output-side defenses such as rounding. The key lesson from the rounding report is that a defense that breaks the original finite-difference primitive may still be vulnerable to an adapted attack that treats the modified oracle as part of the threat model.
+
+Representative works:
+
+- Train to Defend.
+- Output rounding and step-spacing extraction.
+- Full-domain geometry masking and event-purity defenses remain open.
 
 ## By Architecture
 
@@ -193,6 +207,8 @@ Useful questions:
 - Can a defender preserve clean behavior while masking off-manifold geometry?
 - Can dormant chaff neurons or normal-jet masking amplify extraction cost?
 - How should we evaluate the difference between behavioral fidelity and geometric utility?
+- How should train-time defenses such as neuron-similarity regularization be combined with deployment-time defenses?
+- Can output rounding be made robust against adapted step-spacing attacks without unacceptable utility loss?
 
 ### 5. Realistic APIs
 
