@@ -86,29 +86,58 @@ Cryptanalytic extraction papers can be organized along four axes:
 
 ## Paper List
 
+Papers are grouped by primary research line. Inside each group, entries are ordered by year.
+
+### Raw-Output ReLU MLP Extraction
+
 | Year | Paper | Archive / venue | Oracle | Architecture | Main idea | Code |
 |---|---|---|---|---|---|---|
 | 2020 | [Cryptanalytic Extraction of Neural Network Models](https://arxiv.org/abs/2003.04884) | CRYPTO 2020 / arXiv | Raw logits | ReLU MLP | Critical-point based differential extraction | [Official](https://github.com/google-research/cryptanalytic-model-extraction) |
 | 2023 | [Polynomial Time Cryptanalytic Extraction of Neural Network Models](https://eprint.iacr.org/2023/1526) | ePrint 2023/1526 / EUROCRYPT 2024 line | Raw logits | ReLU MLP | Polynomial-time sign recovery and extraction improvements | [Official](https://github.com/Crypto-TII/deti) |
+| 2026 | [Geometric Critical Point Screening: Clustering-Free Cryptanalytic Extraction of Neural Network Models](https://eprint.iacr.org/2026/1025) | ePrint 2026/1025 | Raw logits | ReLU networks | Geometric screening of useful critical points | [Official](https://github.com/1983321048/Geometric-CriticalPoint-Screening) |
+| 2026 | [Navigating the Deep End: End-to-End Extraction on Deep Neural Networks](https://eprint.iacr.org/2026/296) | ePrint 2026/296 | Raw logits | Deep ReLU MLP | End-to-end extraction beyond early layers | [Official](https://github.com/PsyduckLiu/End-to-End-Deep-Neural-Network-Extraction) |
+
+### Hard-Label ReLU MLP Extraction
+
+| Year | Paper | Archive / venue | Oracle | Architecture | Main idea | Code |
+|---|---|---|---|---|---|---|
 | 2024 | [Hard-Label Cryptanalytic Extraction of Neural Network Models](https://eprint.iacr.org/2024/1403) | ePrint 2024/1403 | Hard label | ReLU MLP | Functionally equivalent extraction from label-only access | [Official](https://github.com/AI-Lab-Y/NN_cryptanalytic_extraction) |
 | 2024 | [Polynomial Time Cryptanalytic Extraction of Deep Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2024/1580) | ePrint 2024/1580 / EUROCRYPT 2025 line | Hard label | Deep ReLU MLP | Transition points, dual points, signature and sign recovery | [Official](https://github.com/Jchavezsaab/hard-label-dnn-extraction) |
-| 2024 | [A Hard-Label Cryptanalytic Extraction of Non-Fully Connected Deep Neural Networks using Side-Channel Attacks](https://eprint.iacr.org/2024/1870) | ePrint 2024/1870 | Hard label + side channel | Non-FC DNN / CNN-like models | Side-channel assisted extraction of non-FC components | [Official](https://github.com/bcoqueret/Side_channel_cryptanalytic_extraction_of_DNN) |
 | 2025 | [Extracting Some Layers of Deep Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2025/1118) | ePrint 2025/1118 | Hard label | ReLU MLP | Output-layer and partial-layer extraction under structural conditions | [Official](https://github.com/deividafonso281/hard-label-contract-output), [Related](https://github.com/Jchavezsaab/hard-label-dnn-extraction) |
 | 2025 | [Is the Hard-Label Cryptanalytic Model Extraction Really Polynomial?](https://eprint.iacr.org/2025/1868) | ePrint 2025/1868 | Hard label | ReLU MLP | Persistent/dead neuron limitations and polynomiality critique | Not found |
-| 2025 | [Delving into Cryptanalytic Extraction of PReLU Neural Networks](https://eprint.iacr.org/2025/1970) | ePrint 2025/1970 | Raw / hard-label line | PReLU networks | PReLU-specific extraction and limitations | [Official](https://github.com/AI-Lab-Y/Extracting_PReLU_NN) |
-| 2025 | [Train to Defend: First Defense Against Cryptanalytic Neural Network Parameter Extraction Attacks](https://arxiv.org/abs/2509.16546) | NeurIPS 2025 / arXiv | Defense against cryptanalytic extraction | ReLU MLP | Extraction-aware training that reduces neuron uniqueness via weight-similarity regularization | [Official](https://github.com/anonymous-123-code/anonymouscode) |
-| 2026 | [Geometric Critical Point Screening: Clustering-Free Cryptanalytic Extraction of Neural Network Models](https://eprint.iacr.org/2026/1025) | ePrint 2026/1025 | Raw logits | ReLU networks | Geometric screening of useful critical points | [Official](https://github.com/1983321048/Geometric-CriticalPoint-Screening) |
-| 2026 | [Breaking Slope and Structure Restrictions: Broadening Hard-Label Cryptanalytic Extraction of PReLU Neural Networks](https://eprint.iacr.org/2026/1066) | ePrint 2026/1066 | Hard label | PReLU networks | Removes slope and structure restrictions in PReLU extraction | Not found |
+
+### CNN and Pooling Extraction
+
+| Year | Paper | Archive / venue | Oracle | Architecture | Main idea | Code |
+|---|---|---|---|---|---|---|
 | 2026 | [Cryptanalytic Extraction of Convolutional Neural Networks](https://eprint.iacr.org/2026/139) | ePrint 2026/139 | Hard label | CNN with average pooling | CNN extraction via convolutional structure and kernel recovery | Gone: anonymous 4open link returns 410 |
-| 2026 | [Cryptanalytic Extraction of Recurrent Neural Network Models](https://eprint.iacr.org/2026/168) | ePrint 2026/168 | Raw / hard-label line | RNN | Extends cryptanalytic extraction to recurrent models | Not found |
-| 2026 | [Cryptanalytic Extraction of Neural Networks with Various Activation Functions](https://eprint.iacr.org/2026/178) | ePrint 2026/178 | Raw / hard-label line | Various activations | Extraction beyond standard ReLU | [Official](https://github.com/qixiaokang1-stack/cryptanalytic-model-various-functions) |
 | 2026 | [Algebraic Attack on Convolutional Neural Network with Max Pooling](https://eprint.iacr.org/2026/241) | ePrint 2026/241 | Raw / soft-output line | CNN with max pooling | PSP/RPCP style max-pooling extraction | Announced, no URL |
-| 2026 | [Cryptanalytic Extraction of Deep Neural Networks with Non-Linear Activations](https://eprint.iacr.org/2026/253) | ePrint 2026/253 | Raw-output line | Non-linear activations | Extraction with pseudo-normal and non-linear activation handling | [Official](https://github.com/mstealercryptocrypto-ops/mod_stealer26) |
-| 2026 | [Navigating the Deep End: End-to-End Extraction on Deep Neural Networks](https://eprint.iacr.org/2026/296) | ePrint 2026/296 | Raw logits | Deep ReLU MLP | End-to-end extraction beyond early layers | [Official](https://github.com/PsyduckLiu/End-to-End-Deep-Neural-Network-Extraction) |
 | 2026 | [Model Extraction of Convolutional Neural Networks with Max-Pooling](https://eprint.iacr.org/2026/464) | ePrint 2026/464 | Raw / soft-output line | CNN with max pooling | Max-pooling CNN extraction and receptive-field structure | Not found |
+| 2026 | [End-to-End Polynomial-Time Cryptanalytic Extraction of Convolutional Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2026/902) | ePrint 2026/902 | Hard label | CNN with average pooling | End-to-end hard-label CNN extraction | Announced, no URL found |
+
+### Activation Function Extensions
+
+| Year | Paper | Archive / venue | Oracle | Architecture | Main idea | Code |
+|---|---|---|---|---|---|---|
+| 2025 | [Delving into Cryptanalytic Extraction of PReLU Neural Networks](https://eprint.iacr.org/2025/1970) | ePrint 2025/1970 | Raw / hard-label line | PReLU networks | PReLU-specific extraction and limitations | [Official](https://github.com/AI-Lab-Y/Extracting_PReLU_NN) |
+| 2026 | [Breaking Slope and Structure Restrictions: Broadening Hard-Label Cryptanalytic Extraction of PReLU Neural Networks](https://eprint.iacr.org/2026/1066) | ePrint 2026/1066 | Hard label | PReLU networks | Removes slope and structure restrictions in PReLU extraction | Not found |
+| 2026 | [Cryptanalytic Extraction of Neural Networks with Various Activation Functions](https://eprint.iacr.org/2026/178) | ePrint 2026/178 | Raw / hard-label line | Various activations | Extraction beyond standard ReLU | [Official](https://github.com/qixiaokang1-stack/cryptanalytic-model-various-functions) |
+| 2026 | [Cryptanalytic Extraction of Deep Neural Networks with Non-Linear Activations](https://eprint.iacr.org/2026/253) | ePrint 2026/253 | Raw-output line | Non-linear activations | Extraction with pseudo-normal and non-linear activation handling | [Official](https://github.com/mstealercryptocrypto-ops/mod_stealer26) |
+
+### Other Architectures and Deployment Settings
+
+| Year | Paper | Archive / venue | Oracle | Architecture | Main idea | Code |
+|---|---|---|---|---|---|---|
+| 2024 | [A Hard-Label Cryptanalytic Extraction of Non-Fully Connected Deep Neural Networks using Side-Channel Attacks](https://eprint.iacr.org/2024/1870) | ePrint 2024/1870 | Hard label + side channel | Non-FC DNN / CNN-like models | Side-channel assisted extraction of non-FC components | [Official](https://github.com/bcoqueret/Side_channel_cryptanalytic_extraction_of_DNN) |
+| 2026 | [Cryptanalytic Extraction of Recurrent Neural Network Models](https://eprint.iacr.org/2026/168) | ePrint 2026/168 | Raw / hard-label line | RNN | Extends cryptanalytic extraction to recurrent models | Not found |
 | 2026 | [Polynomial-Time Cryptanalytic Extraction of Graph Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2026/719) | ePrint 2026/719 | Hard label | GNN | Message-passing and graph-structure extraction | [Official](https://github.com/springli07/GNN_MP_CEA) |
 | 2026 | [PPML Is More Vulnerable to Cryptanalytic Extraction Attacks](https://eprint.iacr.org/2026/848) | ePrint 2026/848 | PPML setting | Protected inference systems | Extraction risks in privacy-preserving ML deployments | Not found |
-| 2026 | [End-to-End Polynomial-Time Cryptanalytic Extraction of Convolutional Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2026/902) | ePrint 2026/902 | Hard label | CNN with average pooling | End-to-end hard-label CNN extraction | Announced, no URL found |
+
+### Defenses and Defense Evaluations
+
+| Year | Paper | Archive / venue | Oracle | Architecture | Main idea | Code |
+|---|---|---|---|---|---|---|
+| 2025 | [Train to Defend: First Defense Against Cryptanalytic Neural Network Parameter Extraction Attacks](https://arxiv.org/abs/2509.16546) | NeurIPS 2025 / arXiv | Defense against cryptanalytic extraction | ReLU MLP | Extraction-aware training that reduces neuron uniqueness via weight-similarity regularization | [Official](https://github.com/anonymous-123-code/anonymouscode) |
 | 2026 | [Output Rounding Is Not a Free Defense Against Cryptanalytic Neural Network Extraction](https://65610.csail.mit.edu/2026/reports/cryptanalytic_nn_extract.pdf) | MIT 6.5610 Spring 2026 report | Rounded raw output | ReLU MLP | Studies output rounding as a defense and introduces a step-spacing attack against rounded oracles | Not found |
 
 ## By Oracle Model
