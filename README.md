@@ -40,6 +40,7 @@ If you are new to this area, read in this order.
 2. **Hard-label extraction**
    - Read the early hard-label formulation.
    - Then read the dual-point and boundary-geometry based hard-label extraction line.
+   - Follow with algebraic hard-label extraction, which targets the SVD-heavy dual-point clustering bottleneck.
    - Finally read follow-up papers on output-layer recovery, persistent/dead neurons, and polynomiality limitations.
 
 3. **CNN extraction**
@@ -105,6 +106,7 @@ Papers are grouped by primary research line. Inside each group, entries are orde
 | 2024 | [Polynomial Time Cryptanalytic Extraction of Deep Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2024/1580) | ePrint 2024/1580 / EUROCRYPT 2025 line | Hard label | Deep ReLU MLP | Transition points, dual points, signature and sign recovery | [Official](https://github.com/Jchavezsaab/hard-label-dnn-extraction) |
 | 2025 | [Extracting Some Layers of Deep Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2025/1118) | ePrint 2025/1118 | Hard label | ReLU MLP | Output-layer and partial-layer extraction under structural conditions | [Official](https://github.com/deividafonso281/hard-label-contract-output), [Related](https://github.com/Jchavezsaab/hard-label-dnn-extraction) |
 | 2025 | [Is the Hard-Label Cryptanalytic Model Extraction Really Polynomial?](https://eprint.iacr.org/2025/1868) | ePrint 2025/1868 | Hard label | ReLU MLP | Persistent/dead neuron limitations and polynomiality critique | Not found |
+| 2026 | [Algebraic Cryptanalytic Extraction on Hard-Label Neural Networks](https://eprint.iacr.org/2026/1164) | ePrint 2026/1164 | Hard label | ReLU neural networks | Algebraic reformulation of hard-label extraction that avoids SVD-heavy dual-point clustering | Not found |
 
 ### CNN and Pooling Extraction
 
@@ -161,6 +163,7 @@ Representative papers:
 
 - Hard-label cryptanalytic extraction.
 - Polynomial-time hard-label deep extraction.
+- Algebraic hard-label extraction.
 - Partial/output-layer hard-label extraction.
 - Hard-label CNN and GNN extraction.
 
@@ -187,7 +190,7 @@ Representative works:
 | Architecture | Status | Representative papers |
 |---|---|---|
 | ReLU MLP | Most mature | CRYPTO 2020, EUROCRYPT 2024, hard-label deep extraction |
-| Deep MLP | Active | End-to-end extraction, persistent/dead neuron analysis |
+| Deep MLP | Active | End-to-end extraction, algebraic hard-label extraction, persistent/dead neuron analysis |
 | CNN with average pooling | Emerging | CNN extraction, end-to-end hard-label CNN extraction |
 | CNN with max pooling | Open and difficult | Algebraic max-pooling attack, max-pooling extraction |
 | PReLU / non-ReLU activations | Active | PReLU extraction, various activation functions, non-linear activations |

@@ -40,6 +40,7 @@
 2. **Hard-label 提取**
    - 先看 hard-label extraction 的基本问题定义。
    - 再看基于 transition point、dual point 和 decision-boundary geometry 的方法。
+   - 接着看 algebraic hard-label extraction，它主要针对 dual-point clustering 中 SVD 过重的实践瓶颈。
    - 最后读 output-layer recovery、persistent/dead neuron 和 polynomiality critique。
 
 3. **CNN 提取**
@@ -104,6 +105,7 @@
 | 2024 | [Polynomial Time Cryptanalytic Extraction of Deep Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2024/1580) | ePrint 2024/1580 / EUROCRYPT 2025 线 | Hard label | Deep ReLU MLP | transition point、dual point、signature 和 sign recovery | [Official](https://github.com/Jchavezsaab/hard-label-dnn-extraction) |
 | 2025 | [Extracting Some Layers of Deep Neural Networks in the Hard-Label Setting](https://eprint.iacr.org/2025/1118) | ePrint 2025/1118 | Hard label | ReLU MLP | 结构条件下的 output-layer / partial-layer extraction | [Official](https://github.com/deividafonso281/hard-label-contract-output), [Related](https://github.com/Jchavezsaab/hard-label-dnn-extraction) |
 | 2025 | [Is the Hard-Label Cryptanalytic Model Extraction Really Polynomial?](https://eprint.iacr.org/2025/1868) | ePrint 2025/1868 | Hard label | ReLU MLP | persistent/dead neuron 和 polynomiality critique | Not found |
+| 2026 | [Algebraic Cryptanalytic Extraction on Hard-Label Neural Networks](https://eprint.iacr.org/2026/1164) | ePrint 2026/1164 | Hard label | ReLU neural networks | 将 hard-label extraction 代数化，避免 SVD-heavy dual-point clustering 瓶颈 | Not found |
 
 ### CNN 和 pooling 提取
 
@@ -160,6 +162,7 @@ Hard-label 攻击只能看到 top-1 class。攻击者必须从 decision boundary
 
 - hard-label cryptanalytic extraction；
 - polynomial-time hard-label deep extraction；
+- algebraic hard-label extraction；
 - partial/output-layer hard-label extraction；
 - hard-label CNN 和 GNN extraction。
 
@@ -186,7 +189,7 @@ Soft-label 介于 hard-label 和 raw-logit 之间。它泄漏的信息比 top-1 
 | 架构 | 研究状态 | 代表论文 |
 |---|---|---|
 | ReLU MLP | 最成熟 | CRYPTO 2020、EUROCRYPT 2024、hard-label deep extraction |
-| Deep MLP | 活跃 | end-to-end extraction、persistent/dead neuron analysis |
+| Deep MLP | 活跃 | end-to-end extraction、algebraic hard-label extraction、persistent/dead neuron analysis |
 | Average-pooling CNN | 新兴 | CNN extraction、hard-label CNN end-to-end extraction |
 | Max-pooling CNN | 仍然困难 | algebraic max-pooling attack、max-pooling extraction |
 | PReLU / non-ReLU activations | 活跃 | PReLU extraction、various activation functions、non-linear activations |
